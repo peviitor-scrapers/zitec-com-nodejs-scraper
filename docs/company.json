@@ -1,0 +1,11 @@
+{
+  "id": "15496736",
+  "company": "ZITEC COM SRL",
+  "brand": "Zitec",
+  "status": "activ",
+  "location": ["Bucuresti"],
+  "website": ["https://www.zitec.com"],
+  "career": ["https://careers.makeit.software/jobs"],
+  "scraperFile": "https://github.com/peviitor-scrapers/zitec-com-nodejs-scraper/actions/workflows/scrape.yml",
+  "ownJobUrlPrefix": "https://careers.makeit.software/jobs/"
+}

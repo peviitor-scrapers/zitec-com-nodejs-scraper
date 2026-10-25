@@ -1,0 +1,21 @@
+{
+  "userAgent": "job_seeker_ro_spider",
+  "requestTimeoutMs": 10000,
+  "pageDelayMs": 1000,
+  "rendering": { "mode": "static", "waitSelector": "", "timeoutMs": 30000 },
+  "staleJobDeletion": false,
+  "manageCompany": true,
+  "defaultLocation": ["Bucuresti"],
+  "defaultWorkmode": "on-site",
+  "ownJobUrlPrefix": "https://careers.makeit.software/jobs/",
+  "sources": {
+    "sitemap": "",
+    "listing": "https://careers.makeit.software/jobs",
+    "jobArchive": "https://careers.makeit.software/jobs/"
+  },
+  "selectors": {
+    "jobArticle": ["", "[class*='job']", ".vacancy, .position, .listing-item"],
+    "jobTitle": ["", "h1, h2, h3, h4", "[itemprop='title'], [aria-label]", "a"],
+    "jobMeta": ["", "p, .meta, [class*='deadline']"]
+  }
+}
