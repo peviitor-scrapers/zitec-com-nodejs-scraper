@@ -6,26 +6,31 @@ starts its own changelog from its first release.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2026-10-25
+
+### Added
+- First release of the Zitec scraper: jobs are read from the public teamtailor job board (`zitec`), Romanian postings only, plus ANOFM by CIF. Unit tests for the parser in `tests/unit/ats.test.js`.
+
 ## [1.3.0] - 2026-09-23
 
 ### Added
-- `tests/consistency/required-workflows.test.js` — one test per required
+- `tests/consistency/required-workflows.test.js` â€” one test per required
   workflow file (mirrors the Python `REQUIRED_WORKFLOWS` list, now
   including `automation-health-summary.yml`).
-- `tests/consistency/no-leftover-placeholders.test.js` — scans a derived
+- `tests/consistency/no-leftover-placeholders.test.js` â€” scans a derived
   repo for a leftover `{{PLACEHOLDER}}` token (catches an interrupted or
   partial `setup.js` run) and checks `COMMIT_CHECKLIST.md` exists; both
   early-return in the template's own checkout via `isTemplateCheckout()`.
 - `setup.js` / `setup.py`: print the branch-protection `gh api` command
-  (anti-accident only — blocks force-push + branch deletion on `main`, no
+  (anti-accident only â€” blocks force-push + branch deletion on `main`, no
   PR/review required, since this fleet pushes directly) alongside the
   existing GitHub Pages command, plus a pointer to `DEFINITION_OF_DONE.md`.
-- `DEFINITION_OF_DONE.md` — the checklist a derived scraper should clear
+- `DEFINITION_OF_DONE.md` â€” the checklist a derived scraper should clear
   before being considered finished (code/tests, workflows, repo metadata,
   documentation, first real run).
-- `ai/VERSIONING.md` — documents the `@v1` floating-tag convention: when to
+- `ai/VERSIONING.md` â€” documents the `@v1` floating-tag convention: when to
   move it forward vs. cut a breaking `@v2`.
-- `SCRAPERS.md` — point-in-time registry of every derived scraper (company,
+- `SCRAPERS.md` â€” point-in-time registry of every derived scraper (company,
   repo, language, template version, status).
 
 ## [1.2.0] - 2026-09-23
@@ -41,34 +46,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - `automation-health-summary.yml` / `health-summary-reusable.yml` /
-  `.github/scripts/health_summary.py` — a weekly digest of every scheduled
+  `.github/scripts/health_summary.py` â€” a weekly digest of every scheduled
   workflow's run history (last 7 days), posted/updated as a `health-summary`
   issue: per-workflow success/failure counts plus links to failed runs. Kept
   as a reusable workflow (like `scrape-reusable.yml`), so it needs no
-  per-repo copy of the script — each derived repo's caller file is ~20 lines.
+  per-repo copy of the script â€” each derived repo's caller file is ~20 lines.
 
 ## [1.1.0] - 2026-09-23
 
 ### Added
 - `tests/unit/api.test.js`: regression tests for the CIF zero-padding bug
-  family — assert the actual outgoing request (URL query param or JSON
+  family â€” assert the actual outgoing request (URL query param or JSON
   body) is padded to 8 digits for every call site that touches a CIF
   (`getCompanyByCif`, `querySOLR`, `upsertCompany`, `deleteJobsByCIF`,
   `upsertJobs`). `padCif()` itself was already applied consistently
   everywhere (verified across all derived repos), but nothing guarded that
-  behaviour against a future regression — a stale copy missing the padding
+  behaviour against a future regression â€” a stale copy missing the padding
   is exactly how the historical company-core duplicate records happened.
 
 ## [1.0.0] - 2026-09-10
 
 ### Added
-- `scraper/self-healing.js` — generic selector cascade: `firstMatch`,
-  `locateArticles` (CSS list → JSON-LD `JobPosting` → regex `<article>` → none),
+- `scraper/self-healing.js` â€” generic selector cascade: `firstMatch`,
+  `locateArticles` (CSS list â†’ JSON-LD `JobPosting` â†’ regex `<article>` â†’ none),
   `jsonLdJobPostings`, `cssText`/`structuralText`/`regexText`. One `try/catch`
   per strategy; a failed or rescued step is logged immediately.
-- `scraper/validate.js` — `validateJob` (url / title / location / salary),
+- `scraper/validate.js` â€” `validateJob` (url / title / location / salary),
   `filterValidJobs` (drops + logs), `assertScrapeYieldedJobs` (0-result canary).
-- `scraper/api.js` — `fetchWithRetry`: retry + full-jitter exponential backoff
+- `scraper/api.js` â€” `fetchWithRetry`: retry + full-jitter exponential backoff
   on transient failures (network, 429, 5xx), honours `Retry-After`.
 - `parseListing(html, selectors?)` in `scraper/index.js` runs on the cascade;
   the article / title / deadline fields each self-heal independently.

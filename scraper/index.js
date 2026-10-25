@@ -8,6 +8,7 @@ import { filterValidJobs, assertScrapeYieldedJobs } from "./validate.js";
 import { validateByContent } from "./job-validator.js";
 import { getHtml } from "./browser.js";
 import { locateArticles, firstMatch, regexText, textFromHtml } from "./self-healing.js";
+import { fetchAtsJobs } from "./ats.js";
 import companyConfig from "./config/company.js";
 import scraperConfig, { userAgent } from "./config/scraper.js";
 
@@ -264,6 +265,24 @@ function locationFromTitle(title) {
 }
 
 async function scrapeCareers() {
+  console.log(`Reading the ${scraperConfig.ats.provider} job board "${scraperConfig.ats.slug}" (careers page is client-rendered) ...`);
+  try {
+    const jobs = await fetchAtsJobs(scraperConfig.ats, {
+      defaultWorkmode: scraperConfig.defaultWorkmode,
+      source: CAREERS_SOURCE,
+      timeout: TIMEOUT,
+      userAgent
+    });
+    console.log(`  Found ${jobs.length} Romanian jobs on ${scraperConfig.ats.provider}`);
+    return jobs;
+  } catch (err) {
+    console.log(`  ATS error: ${err.message}`);
+    return [];
+  }
+}
+
+// Original HTML-listing path (kept for reference / fallback experiments).
+async function scrapeCareersHtml() {
   console.log(`Scraping ${scraperConfig.sources.listing} ...`);
   const jobs = [];
 
