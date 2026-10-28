@@ -10,22 +10,15 @@
 | Location | MUNICIPIUL BUCUREŞTI, SECTOR 3, SPL UNIRII, NR.165, CLĂDIREA TN. OFFICES 2. , ET.6 |
 | Website | [https://www.zitec.com](https://www.zitec.com) |
 | Careers | [https://careers.makeit.software/jobs](https://careers.makeit.software/jobs) |
-| Last Scraped | 2026-10-27 |
+| Last Scraped | 2026-10-28 |
 
-## Current Job Listings (5)
+## Current Job Listings (4)
 
-_Generated: 2026-10-27T11:09:53.521Z_
+_Generated: 2026-10-28T11:44:09.851Z_
 
 ### DevSecOps Engineering Manager
 
 - **URL:** [https://careers.makeit.software/jobs/8341392-devsecops-engineering-manager](https://careers.makeit.software/jobs/8341392-devsecops-engineering-manager)
-- **Work Mode:** on-site
-- **Location:** România
-- **Status:** scraped
-
-### Senior Performance Marketing Specialist
-
-- **URL:** [https://careers.makeit.software/jobs/8163730-senior-performance-marketing-specialist](https://careers.makeit.software/jobs/8163730-senior-performance-marketing-specialist)
 - **Work Mode:** on-site
 - **Location:** România
 - **Status:** scraped
