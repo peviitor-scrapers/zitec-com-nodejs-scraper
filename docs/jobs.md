@@ -10,11 +10,11 @@
 | Location | MUNICIPIUL BUCUREŞTI, SECTOR 3, SPL UNIRII, NR.165, CLĂDIREA TN. OFFICES 2. , ET.6 |
 | Website | [https://www.zitec.com](https://www.zitec.com) |
 | Careers | [https://careers.makeit.software/jobs](https://careers.makeit.software/jobs) |
-| Last Scraped | 2026-11-04 |
+| Last Scraped | 2026-11-05 |
 
 ## Current Job Listings (4)
 
-_Generated: 2026-11-04T13:23:38.225Z_
+_Generated: 2026-11-05T13:36:39.494Z_
 
 ### DevSecOps Engineering Manager
 
